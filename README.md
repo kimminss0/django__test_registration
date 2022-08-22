@@ -1,2 +1,3 @@
 # django__test_registration
-implement login api
+
+- python==3.10.6
