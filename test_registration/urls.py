@@ -16,7 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+import calendarApp
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('auth/', include('registration.urls')),
+    path('admin', admin.site.urls),
+    #path('auth', include('registration.urls')),
+    path('calendars', include('calendarApp.urls')),
 ]
