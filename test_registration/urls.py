@@ -13,11 +13,9 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
+# from django.contrib import admin
 from django.urls import path, include
 
-from calendarApp.urls import router as cal_router
-
 urlpatterns = [
-    path('', include(cal_router.urls)),
+    path('', include('calendarApp.urls')),
 ]
