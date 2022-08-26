@@ -26,21 +26,16 @@ class calViewSet(viewsets.ViewSet):
         serializer = CalSerializer(cal)
         return Response(serializer.data)
 
-    def update(self, request, pk=None):
+    def update(self, request, pk=None, partial=False):
         queryset = Cal.objects.all()
         cal = get_object_or_404(queryset, pk=pk)
-        serializer = CalSerializer(cal, data=request.data)
+        serializer = CalSerializer(cal, data=request.data, partial=partial)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
         
     def partial_update(self, request, pk=None):
-        queryset = Cal.objects.all()
-        cal = get_object_or_404(queryset, pk=pk)
-        serializer = CalSerializer(cal, data=request.data, partial=True)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-        return Response(serializer.data)
+        self.update(request, pk, partial=True)
 
     def destroy(self, request, pk=None):
         queryset = Cal.objects.all()
