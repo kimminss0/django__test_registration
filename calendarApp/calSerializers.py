@@ -9,7 +9,7 @@ class SmallSerializer(serializers.ModelSerializer):
     #     fields = '__all__'
 
 class CalSerializer(serializers.ModelSerializer):
-    s = SmallSerializer()
+    s_id_asdf = SmallSerializer()
     var1 = serializers.CharField()
     var2 = serializers.CharField()
     var3 = serializers.CharField()

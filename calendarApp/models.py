@@ -6,7 +6,7 @@ class Small(models.Model):
     s2 = models.TextField()
 
 class Cal(models.Model):
-    s = models.Field()
+    s_id_asdf = models.ForeignKey("Small", related_name="small", on_delete=models.CASCADE, db_column="s_id")
     var1 = models.TextField()
     var2 = models.TextField()
     var3 = models.TextField()
